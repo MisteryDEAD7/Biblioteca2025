@@ -26,151 +26,112 @@ public class Biblioteca2025 {
     }
    
     //<editor-fold defaultstate="collapsed" desc="MENUS">
-    
-     public void menu() {
-        Scanner sc= new Scanner(System.in);
-        int opcion=0;//una variable entera para escoger la opción
+    public void menu() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
         do {
-            System.out.println("\n\n\n\n\n\t\t\t\tBiblioteca\n");
-            System.out.println("\t\t\t\t1 - LIBROS");
-            System.out.println("\t\t\t\t2 - USUARIOS");
-            System.out.println("\t\t\t\t3 - PRESTAMOS");
-            System.out.println("\t\t\t\t9 - SALIR");
-            opcion= sc.nextInt();
-            switch(opcion) {
-                case 1: {
-                    menuLibros();
-                    break;
-                }
-                case 2: {
-                    menuUsuarios();
-                    break;
-                }
-                case 3: {
-                    menuPrestamos();
-                    break;
-                }
+            System.out.println("\n\t\t\tBiblioteca");
+            System.out.println("\t\t\t1 - LIBROS");
+            System.out.println("\t\t\t2 - USUARIOS");
+            System.out.println("\t\t\t3 - PRESTAMOS");
+            System.out.println("\t\t\t4 - ESTADÍSTICAS");
+            System.out.println("\t\t\t9 - SALIR");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1 -> menuLibros();
+                case 2 -> menuUsuarios();
+                case 3 -> menuPrestamos();
+                case 4 -> menuEstadisticas();
             }
-        }while (opcion !=9);
+        } while (opcion != 9);
     }
-
-    private void menuLibros() {
-        Scanner sc= new Scanner(System.in);
-        int opcion=0;//una variable entera para recojer la opción
+     private void menuLibros() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
         do {
-            System.out.println("\n\n\n\n\n\t\t\t\tLIBROS\n");
-            System.out.println("\t\t\t\t1 - NUEVO LIBRO");
-            System.out.println("\t\t\t\t2 - ELIMINAR LIBRO");
-            System.out.println("\t\t\t\t3 - MODIFICAR LIBRO");
-            System.out.println("\t\t\t\t4 - LISTADOS");
-            System.out.println("\t\t\t\t9 - SALIR");
-            opcion= sc.nextInt();
-            switch(opcion) {
-                case 1: {
-                    nuevoLibro();
-                    break;
-                }
-                case 2: {
-                    eliminarLibro();
-                    break;
-                }
-                case 3: {
-                    modificarLibros();
-                    break;
-                }
-                case 4: {
-                   listaLibros();
-                    break;
-                }
+            System.out.println("\n\t\t\tLIBROS");
+            System.out.println("\t\t\t1 - AGREGAR LIBRO");
+            System.out.println("\t\t\t2 - ELIMINAR LIBRO");
+            System.out.println("\t\t\t3 - ACTUALIZAR LIBRO");
+            System.out.println("\t\t\t4 - BUSCAR POR TÍTULO");
+            System.out.println("\t\t\t9 - VOLVER");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1 -> agregarLibro();
+                case 2 -> eliminarLibro();
+                case 3 -> actualizarLibro();
+                case 4 -> buscarLibroPorTitulo();
             }
-        }while (opcion !=9);
+        } while (opcion != 9);
     }
     
 
-    private void menuUsuarios() {
-       Scanner sc= new Scanner(System.in);
-        int opcion=0;//una variable entera para escoger la opción
+     private void menuUsuarios() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
         do {
-            System.out.println("\n\n\n\n\n\t\t\t\tUSUARIOS\n");
-            System.out.println("\t\t\t\t1 - NUEVO USUARIO");
-            System.out.println("\t\t\t\t2 - ELIMINAR USUARIO");
-            System.out.println("\t\t\t\t3 - MODIFICAR USUARIO");
-            System.out.println("\t\t\t\t4 - LISTADOS");
-            System.out.println("\t\t\t\t9 - SALIR");
-            opcion= sc.nextInt();
-            switch(opcion) {
-                case 1: {
-                    nuevoUsuario();
-                    break;
-                }
-                case 2: {
-                    eliminarUsuario();
-                    break;
-                }
-                case 3: {
-                    modificarUsuario();
-                    break;
-                }
-                case 4: {
-                   listaUsuarios();
-                    break;
-                }
+            System.out.println("\n\t\t\tUSUARIOS");
+            System.out.println("\t\t\t1 - AGREGAR USUARIO");
+            System.out.println("\t\t\t2 - ELIMINAR USUARIO");
+            System.out.println("\t\t\t3 - MODIFICAR USUARIO");
+            System.out.println("\t\t\t4 - BUSCAR POR EMAIL");
+            System.out.println("\t\t\t9 - VOLVER");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1 -> agregarUsuario();
+                case 2 -> eliminarUsuario();
+                case 3 -> modificarUsuario();
+                case 4 -> buscarUsuarioPorEmail();
             }
-        }while (opcion !=9);
+        } while (opcion != 9);
     }
     
 
     private void menuPrestamos() {
-       Scanner sc= new Scanner(System.in);
-        int opcion=0;//una variable entera para recojer la opción
+        Scanner sc = new Scanner(System.in);
+        int opcion;
         do {
-            System.out.println("\n\n\n\n\n\t\t\t\tPRESTAMOS\n");
-            System.out.println("\t\t\t\t1 - NUEVO PRESTAMO");
-            System.out.println("\t\t\t\t2 - ELIMINAR PRESTAMO");
-            System.out.println("\t\t\t\t3 - PRROROGAR PRESTAMO");
-            System.out.println("\t\t\t\t4 - LISTADOS PRESTAMOS");
-            System.out.println("\t\t\t\t5 - LISTADOS PRESTAMOS HISTORICOS");
-            System.out.println("\t\t\t\t6 - LISTADOS PRESTAMOS LIBRO(USUARIOS QUE LO LEEN");
-            System.out.println("\t\t\t\t7 - LIBRO MAS LEIDO");
-            System.out.println("\t\t\t\t8 - USUARIO MAS LECTOR");
-            System.out.println("\t\t\t\t9 - SALIR");
-            opcion= sc.nextInt();
-            switch(opcion) {
-                case 1: {
-                    nuevoPrestamo();
-                    break;
-                }
-                case 2: {
-                    devolucion();
-                    break;
-                }
-                case 3: {
-                    prorroga();
-                    break;
-                }
-                case 4: {
-                   listaPrestamos();
-                    break;
-                }
-                case 5: {
-                   listaPrestamosUsu();
-                    break;
-                }
-                case 6: {
-                   listaPrestamosLibro();
-                    break;
-                }
-                case 7: {
-                    libroMasLeido();
-                    break;
-                }
-                case 8:{
-                    usuarioMasLector();
-                    break;
-                }
+            System.out.println("\n\t\t\tPRESTAMOS");
+            System.out.println("\t\t\t1 - NUEVO PRESTAMO");
+            System.out.println("\t\t\t2 - DEVOLVER PRESTAMO");
+            System.out.println("\t\t\t3 - EXTENDER PRESTAMO");
+            System.out.println("\t\t\t4 - LISTAR POR FECHA");
+            System.out.println("\t\t\t9 - VOLVER");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1 -> nuevoPrestamo();
+                case 2 -> devolverPrestamo();
+                case 3 -> extenderPrestamo();
+                case 4 -> listarPrestamosPorFecha();
             }
-        }while (opcion !=9);
+        } while (opcion != 9);
     }
+    
+    
+    
+    private void menuEstadisticas() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        do {
+            System.out.println("\n\t\t\tESTADÍSTICAS");
+            System.out.println("\t\t\t1 - TOTAL DE LIBROS");
+            System.out.println("\t\t\t2 - TOTAL DE USUARIOS");
+            System.out.println("\t\t\t3 - TOTAL DE PRÉSTAMOS ACTIVOS");
+            System.out.println("\t\t\t4 - TOTAL DE PRÉSTAMOS HISTÓRICOS");
+            System.out.println("\t\t\t5 - LIBRO MÁS POPULAR POR GÉNERO");
+            System.out.println("\t\t\t9 - VOLVER");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1 -> totalLibros();
+                case 2 -> totalUsuarios();
+                case 3 -> totalPrestamosActivos();
+                case 4 -> totalPrestamosHistoricos();
+                case 5 -> libroMasPopularPorGenero();
+            }
+        } while (opcion != 9);
+    }
+    
+    
     
     
 //</editor-fold>
@@ -195,18 +156,14 @@ public class Biblioteca2025 {
         ejemplares=sc.nextInt();
         libros.add(new Libro(isbn,titulo,autor,genero,ejemplares));
         
-    }
+       }
 
-    private void eliminarLibro() { 
-        Scanner sc=new Scanner (System.in);
-        System.out.println("ISBN del libro a Borrar: ");
-        String isbn=sc.nextLine();
-        int pos=buscaIsbn(isbn);
-        if (pos==-1){
-            System.out.println("El libro que buscas no está registrado"); 
-        }else{
-            libros.remove(pos);
-        }
+     private void eliminarLibro() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el ISBN del libro a eliminar:");
+        String isbn = sc.nextLine();
+        libros.removeIf(libro -> libro.getIsbn().equals(isbn));
+        System.out.println("Libro eliminado, si existía.");
     }
 
     private void modificarLibros() {
@@ -219,6 +176,7 @@ public class Biblioteca2025 {
         }
     }
  
+    
     
 //</editor-fold>
 
@@ -484,7 +442,8 @@ public class Biblioteca2025 {
         }
     }
             
-        
+    
+    
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="METODOS AUXILIARES">
@@ -638,9 +597,7 @@ public class Biblioteca2025 {
         usuarios.add(new Usuario("11", "Ana", "ana@email.com", "621111111"));
         prestamos.add(new Prestamo(libros.get(0), usuarios.get(0), LocalDate.now().minusDays(10), LocalDate.now().plusDays(5)));
     }
-
-//</editor-fold>
-
+    
     private void totalLibros() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -652,4 +609,43 @@ public class Biblioteca2025 {
     private void totalPrestamosActivos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    private void agregarLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void actualizarLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void buscarLibroPorTitulo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void agregarUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void devolverPrestamo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void extenderPrestamo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void listarPrestamosPorFecha() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void libroMasPopularPorGenero() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void totalPrestamosHistoricos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+//</editor-fold>
+
 }
